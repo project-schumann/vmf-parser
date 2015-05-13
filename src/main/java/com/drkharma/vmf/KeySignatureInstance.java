@@ -25,4 +25,24 @@ public class KeySignatureInstance {
         this.measure = measure;
         this.keySignature = keySignature;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && obj.getClass().equals(KeySignatureInstance.class)) {
+            KeySignatureInstance that = (KeySignatureInstance) obj;
+
+            if (this.keySignature.equals(that.keySignature)
+                    && this.measure == that.measure) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        Integer measure = new Integer(this.measure);
+        return this.keySignature.hashCode() + measure.hashCode();
+    }
 }

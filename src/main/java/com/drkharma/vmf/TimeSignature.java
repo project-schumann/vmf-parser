@@ -34,4 +34,28 @@ public class TimeSignature {
         this.lower = Integer.parseInt(parts[1]);
         this.measure = measure;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && obj.getClass().equals(TimeSignature.class)) {
+            TimeSignature that = (TimeSignature) obj;
+
+            if (this.measure == that.measure
+                    && this.upper == that.upper
+                    && this.lower == that.lower) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        Integer measure = new Integer(this.measure);
+        Integer upper = new Integer(this.upper);
+        Integer lower = new Integer(this.lower);
+
+        return measure.hashCode() + upper.hashCode() + lower.hashCode();
+    }
 }

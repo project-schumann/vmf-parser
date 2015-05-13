@@ -33,12 +33,38 @@ public class VectorMusic {
     /**
      * The time signatures which are part of this piece.
      */
-    private List<TimeSignature> timeSignatures = new LinkedList<TimeSignature>();
+    private List<TimeSignature> timeSignatures;
 
     /**
      * The key signatures which are part of this piece.
      */
-    private List<KeySignatureInstance> keySignatures = new LinkedList<KeySignatureInstance>();
+    private List<KeySignatureInstance> keySignatures;
+
+    /**
+     * Default Constructor.
+     */
+    public VectorMusic() {
+        this.timeSignatures = new LinkedList<TimeSignature>();
+        this.keySignatures = new LinkedList<KeySignatureInstance>();
+    }
+
+    /**
+     * Constructor allowing provided values.
+     *
+     * @param tickValue      The value of a tick expressed as a fraction of a quarter note.
+     * @param numberOfParts  The number of parts in this piece of music.
+     * @param numberOfVoices The number of individual voices in this piece of music.
+     * @param timeSignatures The time signatures which are part of this piece.
+     * @param keySignatures  The key signatures which are part of this piece.
+     */
+    public VectorMusic(Fraction tickValue, int numberOfParts, int numberOfVoices,
+                       List<TimeSignature> timeSignatures, List<KeySignatureInstance> keySignatures) {
+        this.tickValue = tickValue;
+        this.numberOfParts = numberOfParts;
+        this.numberOfVoices = numberOfVoices;
+        this.timeSignatures = timeSignatures;
+        this.keySignatures = keySignatures;
+    }
 
     /**
      * Gets the value of a tick expressed as a fraction of a quarter note.
@@ -92,5 +118,31 @@ public class VectorMusic {
      */
     public void addKeySignature(KeySignatureInstance keySignature) {
         this.keySignatures.add(keySignature);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && obj.getClass().equals(VectorMusic.class)) {
+            VectorMusic that = (VectorMusic) obj;
+
+            if (this.tickValue.equals(that.tickValue)
+                    && this.numberOfParts == that.numberOfParts
+                    && this.numberOfVoices == that.numberOfVoices
+                    && this.timeSignatures.equals(that.timeSignatures)
+                    && this.keySignatures.equals(that.keySignatures)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        Integer numberOfParts = new Integer(this.numberOfParts);
+        Integer numberOfVoices = new Integer(this.numberOfVoices);
+
+        return this.tickValue.hashCode() + numberOfParts.hashCode() + numberOfVoices.hashCode()
+                + this.timeSignatures.hashCode() + this.keySignatures.hashCode();
     }
 }

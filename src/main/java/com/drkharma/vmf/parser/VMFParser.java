@@ -4,6 +4,7 @@ import com.drkharma.vmf.KeySignature;
 import com.drkharma.vmf.KeySignatureInstance;
 import com.drkharma.vmf.TimeSignature;
 import com.drkharma.vmf.VectorMusic;
+import com.drkharma.vmf.parser.exception.TimeSignatureMissingException;
 import org.apache.commons.lang3.math.Fraction;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,6 +14,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
+
+import static java.lang.Double.parseDouble;
 
 /**
  * A parser for mapping VMF files onto a Java object model.
@@ -73,8 +76,9 @@ public class VMFParser {
      *
      * @return An instance of {@link VectorMusic} representing the VMF file.
      * @throws IOException If there is an issue parsing the file.
+     * @throws TimeSignatureMissingException When the file contains no time signatures.
      */
-    public VectorMusic parse() throws IOException {
+    public VectorMusic parse() throws IOException, TimeSignatureMissingException {
         try {
             this.parseHeader();
         } catch (JSONException e) {
@@ -88,9 +92,10 @@ public class VMFParser {
      * Parses the header data from the VMF file.
      *
      * @throws JSONException If the file cannot be parsed.
+     * @throws TimeSignatureMissingException If the time signatures section of the header is empty.
      */
     @SuppressWarnings("unchecked")
-    private void parseHeader() throws JSONException {
+    private void parseHeader() throws JSONException, TimeSignatureMissingException {
         String key;
 
         JSONObject header = this.jsonObj.getJSONObject("header");
@@ -104,14 +109,30 @@ public class VMFParser {
         this.music.setNumberOfParts(header.getInt("number_of_parts"));
         this.music.setNumberOfVoices(header.getInt("number_of_voices"));
 
-        while ((key = tsIt.next()) != null) {
-            TimeSignature timeSignature = new TimeSignature(Integer.parseInt(key), timeSignatures.getString(key));
+        if (!tsIt.hasNext()) {
+            throw new TimeSignatureMissingException("A minimum of one time signature is required.");
+        }
+
+        while (tsIt.hasNext()) {
+            key = tsIt.next();
+
+            TimeSignature timeSignature = new TimeSignature((int) parseDouble(key), timeSignatures.getString(key));
             this.music.addTimeSignature(timeSignature);
         }
 
-        while ((key = ksIt.next()) != null) {
+        if (!ksIt.hasNext()) {
+            // If there is no key signature, we will assume the key is C major and it is at the beginning
+            // of the piece.
+            KeySignature keySignature = KeySignature.C_MAJOR_A_MINOR;
+            KeySignatureInstance keySignatureInstance = new KeySignatureInstance(0, keySignature);
+            this.music.addKeySignature(keySignatureInstance);
+        }
+
+        while (ksIt.hasNext()) {
+            key = ksIt.next();
+
             KeySignature keySignature = KeySignature.getKeySignature(keySignatures.getInt(key));
-            KeySignatureInstance keySignatureInstance = new KeySignatureInstance(Integer.parseInt(key), keySignature);
+            KeySignatureInstance keySignatureInstance = new KeySignatureInstance((int) parseDouble(key), keySignature);
             this.music.addKeySignature(keySignatureInstance);
         }
     }

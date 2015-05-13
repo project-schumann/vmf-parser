@@ -61,8 +61,13 @@ public enum KeySignature {
      *
      * @param keySignatureCode The VMF key signature code.
      * @return The {@link KeySignature} which corresponds to this code.
+     * @throws IllegalArgumentException If the code provided is greater than 7 or less than -7.
      */
-    public static KeySignature getKeySignature(int keySignatureCode) {
+    public static KeySignature getKeySignature(int keySignatureCode) throws IllegalArgumentException {
+        if (Math.abs(keySignatureCode) > 7) {
+            throw new IllegalArgumentException("The code should be between -7 and 7");
+        }
+
         return keySignatureLookup.get(keySignatureCode);
     }
 
@@ -86,6 +91,10 @@ public enum KeySignature {
      * Registers a KeySignature in the lookup table.
      */
     private void registerKeySignature() {
+        if (keySignatureLookup == null) {
+            keySignatureLookup = new HashMap<Integer, KeySignature>();
+        }
+
         if (this.flats == 0 && this.sharps == 0) {
             keySignatureLookup.put(0, this);
         } else if (this.flats == 0) {
