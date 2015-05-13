@@ -1,11 +1,9 @@
 package com.drkharma.vmf.parser;
 
-import com.drkharma.vmf.KeySignature;
-import com.drkharma.vmf.KeySignatureInstance;
-import com.drkharma.vmf.TimeSignature;
-import com.drkharma.vmf.VectorMusic;
+import com.drkharma.vmf.*;
 import com.drkharma.vmf.parser.exception.TimeSignatureMissingException;
 import org.apache.commons.lang3.math.Fraction;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -81,6 +79,7 @@ public class VMFParser {
     public VectorMusic parse() throws IOException, TimeSignatureMissingException {
         try {
             this.parseHeader();
+            this.parseBody();
         } catch (JSONException e) {
             throw new IOException(e.getMessage());
         }
@@ -134,6 +133,37 @@ public class VMFParser {
             KeySignature keySignature = KeySignature.getKeySignature(keySignatures.getInt(key));
             KeySignatureInstance keySignatureInstance = new KeySignatureInstance((int) parseDouble(key), keySignature);
             this.music.addKeySignature(keySignatureInstance);
+        }
+    }
+
+    /**
+     * Parses the body from the VMF file.
+     */
+    public void parseBody() throws JSONException {
+        JSONArray body = this.jsonObj.getJSONArray("body");
+        Note currentNote = null;
+        int currentOffset = 0;
+
+        // Iterate over all ticks and form the notes of the melody.
+        for (int i = 0; i < body.length(); ++i) {
+            // For now, only monophonic music is supported, we take the first part in each tick.
+            JSONArray currentTick = body.getJSONArray(i).getJSONArray(0);
+
+            // Check the first dimension, if it is 1, a new note is attacked.
+            if (currentNote == null && currentTick.getInt(0) == 1) {
+                currentNote = new Note(currentTick.getInt(1), currentTick.getInt(2), currentTick.getInt(3),
+                        currentTick.getInt(4), currentOffset);
+
+                this.music.addNote(currentNote);
+
+                // Reset the offset for the next note.
+                currentOffset = 1;
+            } else if (currentTick.getInt(0) == 2) {
+                currentNote.incrementDuration();
+                currentOffset++;
+            } else if (currentTick.getInt(0) == 0) {
+                currentOffset++;
+            }
         }
     }
 }

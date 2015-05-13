@@ -40,7 +40,6 @@ public class KeySignatureTest {
         assertEquals(-1, code);
     }
 
-
     /**
      * Tests retrieval of a key signature which exists.
      */

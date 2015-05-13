@@ -29,10 +29,12 @@ public enum KeySignature {
      * key signature code.
      */
     private static HashMap<Integer, KeySignature> keySignatureLookup;
+
     /**
      * The number of sharps in the key signature.
      */
     private final int sharps;
+
     /**
      * The number of flats in the key signature.
      */

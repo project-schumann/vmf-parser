@@ -41,11 +41,17 @@ public class VectorMusic {
     private List<KeySignatureInstance> keySignatures;
 
     /**
+     * The notes which are part of this piece of music.
+     */
+    private List<Note> notes;
+
+    /**
      * Default Constructor.
      */
     public VectorMusic() {
         this.timeSignatures = new LinkedList<TimeSignature>();
         this.keySignatures = new LinkedList<KeySignatureInstance>();
+        this.notes = new LinkedList<Note>();
     }
 
     /**
@@ -58,12 +64,14 @@ public class VectorMusic {
      * @param keySignatures  The key signatures which are part of this piece.
      */
     public VectorMusic(Fraction tickValue, int numberOfParts, int numberOfVoices,
-                       List<TimeSignature> timeSignatures, List<KeySignatureInstance> keySignatures) {
+                       List<TimeSignature> timeSignatures, List<KeySignatureInstance> keySignatures,
+                       List<Note> notes) {
         this.tickValue = tickValue;
         this.numberOfParts = numberOfParts;
         this.numberOfVoices = numberOfVoices;
         this.timeSignatures = timeSignatures;
         this.keySignatures = keySignatures;
+        this.notes = notes;
     }
 
     /**
@@ -144,5 +152,9 @@ public class VectorMusic {
 
         return this.tickValue.hashCode() + numberOfParts.hashCode() + numberOfVoices.hashCode()
                 + this.timeSignatures.hashCode() + this.keySignatures.hashCode();
+    }
+
+    public void addNote(Note note) {
+        this.notes.add(note);
     }
 }

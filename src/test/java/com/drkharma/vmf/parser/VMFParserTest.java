@@ -1,9 +1,6 @@
 package com.drkharma.vmf.parser;
 
-import com.drkharma.vmf.KeySignature;
-import com.drkharma.vmf.KeySignatureInstance;
-import com.drkharma.vmf.TimeSignature;
-import com.drkharma.vmf.VectorMusic;
+import com.drkharma.vmf.*;
 import com.drkharma.vmf.parser.exception.TimeSignatureMissingException;
 import org.apache.commons.lang3.math.Fraction;
 import org.junit.Test;
@@ -30,7 +27,15 @@ public class VMFParserTest {
         final String SIMPLE_VMF = "fixtures/simple.vmf";
         VectorMusic actual = null;
         VectorMusic expected = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")), Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)));
+                Arrays.asList(new TimeSignature(0, "2/4")),
+                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                Arrays.asList(
+                        new Note(-1, 0, 0, 4, 0),
+                        new Note(-1, 0, 4, 4, 1),
+                        new Note(-1, 0, 7, 4, 1),
+                        new Note(-1, 0, 4, 4, 1)
+                )
+        );
 
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         URI vmfURI = null;
@@ -133,7 +138,15 @@ public class VMFParserTest {
         final String SIMPLE_VMF = "fixtures/noKeySignature.vmf";
         VectorMusic actual = null;
         VectorMusic expected = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")), Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)));
+                Arrays.asList(new TimeSignature(0, "2/4")),
+                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                Arrays.asList(
+                        new Note(-1, 0, 0, 4, 0),
+                        new Note(-1, 0, 4, 4, 1),
+                        new Note(-1, 0, 7, 4, 1),
+                        new Note(-1, 0, 4, 4, 1)
+                )
+        );
 
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         URI vmfURI = null;
