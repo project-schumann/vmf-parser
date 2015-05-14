@@ -191,4 +191,75 @@ public class VMFParserTest {
             fail("Unexpected exception was thrown.");
         }
     }
+
+    /**
+     * Tests the parsing of a valid VMF file with sustained notes.
+     */
+    @Test
+    public void testParse007() {
+        final String SIMPLE_VMF = "fixtures/sustained.vmf";
+        VectorMusic actual = null;
+        VectorMusic expected = new VectorMusic(Fraction.ONE, 1, 1,
+                Arrays.asList(new TimeSignature(0, "2/4")),
+                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                Arrays.asList(
+                        new Note(-1, 0, 0, 4, 0, 2),
+                        new Note(-1, 0, 4, 4, 2, 2),
+                        new Note(-1, 0, 7, 4, 2, 2),
+                        new Note(-1, 0, 4, 4, 2, 2)
+                )
+        );
+
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        URI vmfURI = null;
+        try {
+            vmfURI = classloader.getResource(SIMPLE_VMF).toURI();
+        } catch (URISyntaxException e) {
+            fail("Fixture file not found.");
+        }
+
+        try {
+            VMFParser parser = new VMFParser(new File(vmfURI));
+            actual = parser.parse();
+        } catch (TimeSignatureMissingException | IOException e) {
+            fail("Unexpected exception was thrown.");
+        }
+
+        assertEquals(expected, actual);
+    }
+
+    /**
+     * Tests the parsing of a valid VMF file with rests.
+     */
+    @Test
+    public void testParse008() {
+        final String SIMPLE_VMF = "fixtures/rest.vmf";
+        VectorMusic actual = null;
+        VectorMusic expected = new VectorMusic(Fraction.ONE, 1, 1,
+                Arrays.asList(new TimeSignature(0, "2/4")),
+                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                Arrays.asList(
+                        new Note(-1, 0, 0, 4, 0),
+                        new Note(-1, 0, 7, 4, 2),
+                        new Note(-1, 0, 4, 4, 1)
+                )
+        );
+
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        URI vmfURI = null;
+        try {
+            vmfURI = classloader.getResource(SIMPLE_VMF).toURI();
+        } catch (URISyntaxException e) {
+            fail("Fixture file not found.");
+        }
+
+        try {
+            VMFParser parser = new VMFParser(new File(vmfURI));
+            actual = parser.parse();
+        } catch (TimeSignatureMissingException | IOException e) {
+            fail("Unexpected exception was thrown.");
+        }
+
+        assertEquals(expected, actual);
+    }
 }

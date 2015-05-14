@@ -139,7 +139,7 @@ public class VMFParser {
     /**
      * Parses the body from the VMF file.
      */
-    public void parseBody() throws JSONException {
+    private void parseBody() throws JSONException {
         JSONArray body = this.jsonObj.getJSONArray("body");
         Note currentNote = null;
         int currentOffset = 0;
@@ -150,7 +150,7 @@ public class VMFParser {
             JSONArray currentTick = body.getJSONArray(i).getJSONArray(0);
 
             // Check the first dimension, if it is 1, a new note is attacked.
-            if (currentNote == null && currentTick.getInt(0) == 1) {
+            if (currentNote == null || currentTick.getInt(0) == 1) {
                 currentNote = new Note(currentTick.getInt(1), currentTick.getInt(2), currentTick.getInt(3),
                         currentTick.getInt(4), currentOffset);
 

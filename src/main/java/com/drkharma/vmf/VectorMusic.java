@@ -128,6 +128,15 @@ public class VectorMusic {
         this.keySignatures.add(keySignature);
     }
 
+    /**
+     * Adds a note to this piece.
+     *
+     * @param note The note to add.
+     */
+    public void addNote(Note note) {
+        this.notes.add(note);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj != null && obj.getClass().equals(VectorMusic.class)) {
@@ -137,7 +146,8 @@ public class VectorMusic {
                     && this.numberOfParts == that.numberOfParts
                     && this.numberOfVoices == that.numberOfVoices
                     && this.timeSignatures.equals(that.timeSignatures)
-                    && this.keySignatures.equals(that.keySignatures)) {
+                    && this.keySignatures.equals(that.keySignatures)
+                    && this.notes.equals(that.notes)) {
                 return true;
             }
         }
@@ -152,9 +162,5 @@ public class VectorMusic {
 
         return this.tickValue.hashCode() + numberOfParts.hashCode() + numberOfVoices.hashCode()
                 + this.timeSignatures.hashCode() + this.keySignatures.hashCode();
-    }
-
-    public void addNote(Note note) {
-        this.notes.add(note);
     }
 }

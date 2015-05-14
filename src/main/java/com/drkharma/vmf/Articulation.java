@@ -39,10 +39,10 @@ public enum Articulation {
      *
      * @param articulationCode The VMF code.
      * @return The {@link Articulation} which corresponds to this code.
-     * @throws IllegalArgumentException If the code provided is less than 3 or greater than 7 and not 0.
+     * @throws IllegalArgumentException If the code provided is less than 3 or greater than 7.
      */
     public static Articulation getArticulation(int articulationCode) throws IllegalArgumentException {
-        if ((articulationCode < 3 || articulationCode > 7) && articulationCode != 0) {
+        if ((articulationCode < 3 && articulationCode != 0) || articulationCode > 7) {
             throw new IllegalArgumentException("The code should be 0 or between 3 and 7.");
         }
 
