@@ -46,12 +46,18 @@ public class VectorMusic {
     private List<Note> notes;
 
     /**
+     * The metronome markings in this piece.
+     */
+    private List<MetronomeMarking> metronomeMarkings;
+
+    /**
      * Default Constructor.
      */
     public VectorMusic() {
         this.timeSignatures = new LinkedList<TimeSignature>();
         this.keySignatures = new LinkedList<KeySignatureInstance>();
         this.notes = new LinkedList<Note>();
+        this.metronomeMarkings = new LinkedList<MetronomeMarking>();
     }
 
     /**
@@ -65,13 +71,14 @@ public class VectorMusic {
      */
     public VectorMusic(Fraction tickValue, int numberOfParts, int numberOfVoices,
                        List<TimeSignature> timeSignatures, List<KeySignatureInstance> keySignatures,
-                       List<Note> notes) {
+                       List<Note> notes, List<MetronomeMarking> tempi) {
         this.tickValue = tickValue;
         this.numberOfParts = numberOfParts;
         this.numberOfVoices = numberOfVoices;
         this.timeSignatures = timeSignatures;
         this.keySignatures = keySignatures;
         this.notes = notes;
+        this.metronomeMarkings = tempi;
     }
 
     /**
@@ -135,6 +142,15 @@ public class VectorMusic {
      */
     public void addNote(Note note) {
         this.notes.add(note);
+    }
+
+    /**
+     * Adds a metronomome marking to this peice.
+     *
+     * @param tempo The metronome marking to add.
+     */
+    public void addMetronomeMarking(MetronomeMarking tempo) {
+        this.metronomeMarkings.add(tempo);
     }
 
     @Override

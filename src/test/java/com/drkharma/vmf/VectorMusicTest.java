@@ -8,7 +8,7 @@ import java.util.Arrays;
 import static org.junit.Assert.*;
 
 /**
- * Created by patrick on 5/14/15.
+ * Test Class for {@link VectorMusic}
  */
 public class VectorMusicTest {
 
@@ -25,7 +25,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
@@ -36,7 +37,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         boolean actual = vm1.equals(vm2);
@@ -57,7 +59,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         boolean actual = vm1.equals(null);
@@ -78,7 +81,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         boolean actual = vm1.equals("hello world.");
@@ -99,7 +103,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
@@ -110,7 +115,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         boolean actual = vm1.equals(vm2);
@@ -131,7 +137,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
@@ -142,7 +149,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         boolean actual = vm1.equals(vm2);
@@ -163,7 +171,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
@@ -174,7 +183,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         boolean actual = vm1.equals(vm2);
@@ -195,7 +205,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
@@ -206,7 +217,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         boolean actual = vm1.equals(vm2);
@@ -227,7 +239,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
@@ -238,7 +251,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         boolean actual = vm1.equals(vm2);
@@ -259,7 +273,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 0, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
@@ -270,7 +285,42 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
+        );
+
+        boolean actual = vm1.equals(vm2);
+
+        assertFalse(false);
+    }
+
+    /**
+     * Equality test with different metronome markings..
+     */
+    @Test
+    public void testEquals010() {
+        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 1, 1,
+                Arrays.asList(new TimeSignature(0, "2/4")),
+                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                Arrays.asList(
+                        new Note(-1, 0, 0, 4, 0),
+                        new Note(-1, 0, 4, 4, 1),
+                        new Note(-1, 0, 0, 4, 1),
+                        new Note(-1, 0, 4, 4, 1)
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
+        );
+
+        VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
+                Arrays.asList(new TimeSignature(0, "2/4")),
+                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                Arrays.asList(
+                        new Note(-1, 0, 0, 4, 0),
+                        new Note(-1, 0, 4, 4, 1),
+                        new Note(-1, 0, 7, 4, 1),
+                        new Note(-1, 0, 4, 4, 1)
+                ),
+                Arrays.asList(new MetronomeMarking(0, 200))
         );
 
         boolean actual = vm1.equals(vm2);
@@ -291,7 +341,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
@@ -302,7 +353,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         assertEquals(vm1.hashCode(), vm2.hashCode());
@@ -321,7 +373,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
@@ -332,7 +385,8 @@ public class VectorMusicTest {
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                )
+                ),
+                Arrays.asList(new MetronomeMarking(0, 120))
         );
 
         assertNotEquals(vm1.hashCode(), vm2.hashCode());

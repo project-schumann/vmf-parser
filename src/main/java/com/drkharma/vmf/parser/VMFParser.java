@@ -100,9 +100,11 @@ public class VMFParser {
         JSONObject header = this.jsonObj.getJSONObject("header");
         JSONObject timeSignatures = header.getJSONObject("time_signature");
         JSONObject keySignatures = header.getJSONObject("key_signature");
+        JSONObject tempi = header.getJSONObject("tempo");
 
         Iterator<String> tsIt = timeSignatures.keys();
         Iterator<String> ksIt = keySignatures.keys();
+        Iterator<String> tempoIt = tempi.keys();
 
         this.music.setTickValue(Fraction.getFraction(header.getString("tick_value")));
         this.music.setNumberOfParts(header.getInt("number_of_parts"));
@@ -133,6 +135,18 @@ public class VMFParser {
             KeySignature keySignature = KeySignature.getKeySignature(keySignatures.getInt(key));
             KeySignatureInstance keySignatureInstance = new KeySignatureInstance((int) parseDouble(key), keySignature);
             this.music.addKeySignature(keySignatureInstance);
+        }
+
+        if (!tempoIt.hasNext()) {
+            MetronomeMarking tempo = new MetronomeMarking(0, 100);
+            this.music.addMetronomeMarking(tempo);
+        }
+
+        while (tempoIt.hasNext()) {
+            key = tempoIt.next();
+
+            MetronomeMarking tempo = new MetronomeMarking((int) parseDouble(key), tempi.getInt(key));
+            this.music.addMetronomeMarking(tempo);
         }
     }
 

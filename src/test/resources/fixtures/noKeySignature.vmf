@@ -6,7 +6,10 @@
     "time_signature": {
       "0.0": "2/4"
     },
-    "key_signature": {}
+    "key_signature": {},
+    "tempo": {
+      "0.0": 120
+    }
   },
   "body": [
     [
