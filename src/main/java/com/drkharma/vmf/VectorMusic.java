@@ -2,6 +2,7 @@ package com.drkharma.vmf;
 
 import org.apache.commons.lang3.math.Fraction;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -142,6 +143,14 @@ public class VectorMusic {
      */
     public void addNote(Note note) {
         this.notes.add(note);
+    }
+
+    /**
+     * Gets a read-only view of the notes in this piece.
+     * @return The notes in this piece.
+     */
+    public List<Note> getNotes() {
+        return Collections.unmodifiableList(this.notes);
     }
 
     /**
