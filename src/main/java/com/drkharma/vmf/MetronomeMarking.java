@@ -27,24 +27,21 @@ public class MetronomeMarking {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj != null && obj.getClass().equals(MetronomeMarking.class)) {
-            MetronomeMarking that = (MetronomeMarking) obj;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-            if (this.measure == that.measure
-                    && this.quarterBPM == that.quarterBPM) {
-                return true;
-            }
-        }
+        MetronomeMarking that = (MetronomeMarking) o;
 
-        return false;
+        if (measure != that.measure) return false;
+        return quarterBPM == that.quarterBPM;
+
     }
 
     @Override
     public int hashCode() {
-        Integer measure = new Integer(this.measure);
-        Integer quarterBPM = new Integer(this.quarterBPM);
-
-        return measure.hashCode() + quarterBPM.hashCode();
+        int result = measure;
+        result = 31 * result + quarterBPM;
+        return result;
     }
 }

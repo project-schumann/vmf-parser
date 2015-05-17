@@ -21,6 +21,11 @@ import static java.lang.Double.parseDouble;
 public class VMFParser {
 
     /**
+     * The name of the file parsed.
+     */
+    private String fileName;
+
+    /**
      * The music contained in the file which is being parsed.
      */
     private VectorMusic music;
@@ -39,6 +44,7 @@ public class VMFParser {
      */
     public VMFParser(File vmfFile) throws IOException {
         this.music = new VectorMusic();
+        this.fileName = vmfFile.getName();
 
         try {
             this.jsonObj = new JSONObject(readFile(vmfFile));
@@ -106,9 +112,13 @@ public class VMFParser {
         Iterator<String> ksIt = keySignatures.keys();
         Iterator<String> tempoIt = tempi.keys();
 
-        this.music.setTickValue(Fraction.getFraction(header.getString("tick_value")));
-        this.music.setNumberOfParts(header.getInt("number_of_parts"));
-        this.music.setNumberOfVoices(header.getInt("number_of_voices"));
+        VectorMusicHeader headerObj = this.music.getHeader();
+
+        headerObj.setName(this.fileName);
+
+        headerObj.setTickValue(Fraction.getFraction(header.getString("tick_value")));
+        headerObj.setNumberOfParts(header.getInt("number_of_parts"));
+        headerObj.setNumberOfVoices(header.getInt("number_of_voices"));
 
         if (!tsIt.hasNext()) {
             throw new TimeSignatureMissingException("A minimum of one time signature is required.");
@@ -118,7 +128,7 @@ public class VMFParser {
             key = tsIt.next();
 
             TimeSignature timeSignature = new TimeSignature((int) parseDouble(key), timeSignatures.getString(key));
-            this.music.addTimeSignature(timeSignature);
+            headerObj.addTimeSignature(timeSignature);
         }
 
         if (!ksIt.hasNext()) {
@@ -126,7 +136,7 @@ public class VMFParser {
             // of the piece.
             KeySignature keySignature = KeySignature.C_MAJOR_A_MINOR;
             KeySignatureInstance keySignatureInstance = new KeySignatureInstance(0, keySignature);
-            this.music.addKeySignature(keySignatureInstance);
+            headerObj.addKeySignature(keySignatureInstance);
         }
 
         while (ksIt.hasNext()) {
@@ -134,19 +144,19 @@ public class VMFParser {
 
             KeySignature keySignature = KeySignature.getKeySignature(keySignatures.getInt(key));
             KeySignatureInstance keySignatureInstance = new KeySignatureInstance((int) parseDouble(key), keySignature);
-            this.music.addKeySignature(keySignatureInstance);
+            headerObj.addKeySignature(keySignatureInstance);
         }
 
         if (!tempoIt.hasNext()) {
             MetronomeMarking tempo = new MetronomeMarking(0, 100);
-            this.music.addMetronomeMarking(tempo);
+            headerObj.addMetronomeMarking(tempo);
         }
 
         while (tempoIt.hasNext()) {
             key = tempoIt.next();
 
             MetronomeMarking tempo = new MetronomeMarking((int) parseDouble(key), tempi.getInt(key));
-            this.music.addMetronomeMarking(tempo);
+            headerObj.addMetronomeMarking(tempo);
         }
     }
 

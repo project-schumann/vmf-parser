@@ -27,22 +27,21 @@ public class KeySignatureInstance {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj != null && obj.getClass().equals(KeySignatureInstance.class)) {
-            KeySignatureInstance that = (KeySignatureInstance) obj;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-            if (this.keySignature.equals(that.keySignature)
-                    && this.measure == that.measure) {
-                return true;
-            }
-        }
+        KeySignatureInstance that = (KeySignatureInstance) o;
 
-        return false;
+        if (measure != that.measure) return false;
+        return keySignature == that.keySignature;
+
     }
 
     @Override
     public int hashCode() {
-        Integer measure = new Integer(this.measure);
-        return this.keySignature.hashCode() + measure.hashCode();
+        int result = keySignature != null ? keySignature.hashCode() : 0;
+        result = 31 * result + measure;
+        return result;
     }
 }

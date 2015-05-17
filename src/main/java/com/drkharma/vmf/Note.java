@@ -88,31 +88,29 @@ public class Note {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj != null && obj.getClass().equals(Note.class)) {
-            Note that = (Note) obj;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-            if (this.dynamic.equals(that.dynamic)
-                    && this.articulation.equals(that.articulation)
-                    && this.pitchClass.equals(that.pitchClass)
-                    && this.octave == that.octave
-                    && this.duration == that.duration
-                    && this.offset == that.offset) {
-                return true;
-            }
-        }
+        Note note = (Note) o;
 
-        return false;
+        if (octave != note.octave) return false;
+        if (duration != note.duration) return false;
+        if (offset != note.offset) return false;
+        if (dynamic != note.dynamic) return false;
+        if (articulation != note.articulation) return false;
+        return pitchClass == note.pitchClass;
+
     }
 
     @Override
     public int hashCode() {
-        Integer octave = new Integer(this.octave);
-        Integer duration = new Integer(this.duration);
-        Integer offset = new Integer(this.offset);
-
-        return this.dynamic.hashCode() + this.articulation.hashCode()
-                + this.pitchClass.hashCode() + octave.hashCode()
-                + duration.hashCode() + offset.hashCode();
+        int result = dynamic != null ? dynamic.hashCode() : 0;
+        result = 31 * result + (articulation != null ? articulation.hashCode() : 0);
+        result = 31 * result + (pitchClass != null ? pitchClass.hashCode() : 0);
+        result = 31 * result + octave;
+        result = 31 * result + duration;
+        result = 31 * result + offset;
+        return result;
     }
 }

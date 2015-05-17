@@ -17,28 +17,31 @@ public class VectorMusicTest {
      */
     @Test
     public void testEquals001() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))
+                ),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
-        VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm2 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
         boolean actual = vm1.equals(vm2);
@@ -51,16 +54,17 @@ public class VectorMusicTest {
      */
     @Test
     public void testEquals002() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
         boolean actual = vm1.equals(null);
@@ -73,16 +77,18 @@ public class VectorMusicTest {
      */
     @Test
     public void testEquals003() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))
+                ),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
         boolean actual = vm1.equals("hello world.");
@@ -95,28 +101,30 @@ public class VectorMusicTest {
      */
     @Test
     public void testEquals004() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE_HALF, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE_HALF, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
-        VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm2 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
         boolean actual = vm1.equals(vm2);
@@ -129,28 +137,30 @@ public class VectorMusicTest {
      */
     @Test
     public void testEquals005() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 2, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 2, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
-        VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm2 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
         boolean actual = vm1.equals(vm2);
@@ -163,28 +173,30 @@ public class VectorMusicTest {
      */
     @Test
     public void testEquals006() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 1, 2,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 2,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
-        VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm2 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
         boolean actual = vm1.equals(vm2);
@@ -197,28 +209,30 @@ public class VectorMusicTest {
      */
     @Test
     public void testEquals007() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "4/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "4/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
-        VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm2 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
         boolean actual = vm1.equals(vm2);
@@ -231,28 +245,30 @@ public class VectorMusicTest {
      */
     @Test
     public void testEquals008() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_SHARP_MAJOR_A_SHARP_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_SHARP_MAJOR_A_SHARP_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
-        VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm2 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
         boolean actual = vm1.equals(vm2);
@@ -265,28 +281,30 @@ public class VectorMusicTest {
      */
     @Test
     public void testEquals009() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 0, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
-        VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm2 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
         boolean actual = vm1.equals(vm2);
@@ -299,28 +317,30 @@ public class VectorMusicTest {
      */
     @Test
     public void testEquals010() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 0, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
-        VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm2 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 200))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 200))
+                )
         );
 
         boolean actual = vm1.equals(vm2);
@@ -333,28 +353,30 @@ public class VectorMusicTest {
      */
     @Test
     public void testHashCode001() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
-        VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm2 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
         assertEquals(vm1.hashCode(), vm2.hashCode());
@@ -365,28 +387,30 @@ public class VectorMusicTest {
      */
     @Test
     public void testHashCode002() {
-        VectorMusic vm1 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "2/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm1 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "2/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
-        VectorMusic vm2 = new VectorMusic(Fraction.ONE, 1, 1,
-                Arrays.asList(new TimeSignature(0, "4/4")),
-                Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+        VectorMusic vm2 = new VectorMusic(
+                new VectorMusicHeader(Fraction.ONE, 1, 1,
+                        Arrays.asList(new TimeSignature(0, "4/4")),
+                        Arrays.asList(new KeySignatureInstance(0, KeySignature.C_MAJOR_A_MINOR)),
+                        Arrays.asList(new MetronomeMarking(0, 120))),
                 Arrays.asList(
                         new Note(-1, 0, 0, 4, 0),
                         new Note(-1, 0, 4, 4, 1),
                         new Note(-1, 0, 7, 4, 1),
                         new Note(-1, 0, 4, 4, 1)
-                ),
-                Arrays.asList(new MetronomeMarking(0, 120))
+                )
         );
 
         assertNotEquals(vm1.hashCode(), vm2.hashCode());

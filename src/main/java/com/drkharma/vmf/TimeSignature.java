@@ -36,26 +36,23 @@ public class TimeSignature {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj != null && obj.getClass().equals(TimeSignature.class)) {
-            TimeSignature that = (TimeSignature) obj;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-            if (this.measure == that.measure
-                    && this.upper == that.upper
-                    && this.lower == that.lower) {
-                return true;
-            }
-        }
+        TimeSignature that = (TimeSignature) o;
 
-        return false;
+        if (measure != that.measure) return false;
+        if (upper != that.upper) return false;
+        return lower == that.lower;
+
     }
 
     @Override
     public int hashCode() {
-        Integer measure = new Integer(this.measure);
-        Integer upper = new Integer(this.upper);
-        Integer lower = new Integer(this.lower);
-
-        return measure.hashCode() + upper.hashCode() + lower.hashCode();
+        int result = measure;
+        result = 31 * result + upper;
+        result = 31 * result + lower;
+        return result;
     }
 }
