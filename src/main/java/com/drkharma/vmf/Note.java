@@ -81,6 +81,41 @@ public class Note {
     }
 
     /**
+     * Gets the pitch class.
+     * @return The pitch class.
+     */
+    public PitchClass getPitchClass() {
+        return pitchClass;
+    }
+
+    /**
+     * Gets the octave.
+     *
+     * @return The octave.
+     */
+    public int getOctave() {
+        return octave;
+    }
+
+    /**
+     * Gets the offset of this note in ticks.
+     *
+     * @return The offset of this note in ticks.
+     */
+    public int getOffset() {
+        return offset;
+    }
+
+    /**
+     * Sets the offset of this note in ticks.
+     *
+     * @param offset The offset of this note in ticks.
+     */
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
+
+    /**
      * Extends the duration of this note by a single tick.
      */
     public void incrementDuration() {
