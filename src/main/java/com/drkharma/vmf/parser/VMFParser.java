@@ -174,7 +174,7 @@ public class VMFParser {
             JSONArray currentTick = body.getJSONArray(i).getJSONArray(0);
 
             // Check the first dimension, if it is 1, a new note is attacked.
-            if (currentNote == null || currentTick.getInt(0) == 1) {
+            if (currentTick.getInt(0) == 1) {
                 currentNote = new Note(currentTick.getInt(1), currentTick.getInt(2), currentTick.getInt(3),
                         currentTick.getInt(4), currentOffset);
 
