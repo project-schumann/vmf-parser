@@ -26,6 +26,22 @@ public class MetronomeMarking {
         this.quarterBPM = quarterBPM;
     }
 
+    /**
+     * Gets the tempo of this marking.
+     * @return The tempo of this marking.
+     */
+    public int getQuarterBPM() {
+        return quarterBPM;
+    }
+
+    /**
+     * Gets the measure where this marking is located.
+     * @return The measure where this marking is located.
+     */
+    public int getMeasure() {
+        return measure;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
