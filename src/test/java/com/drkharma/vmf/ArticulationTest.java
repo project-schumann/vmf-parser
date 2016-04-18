@@ -24,7 +24,8 @@ public class ArticulationTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testGetArticulation002() {
-        Articulation actual = Articulation.getArticulation(-4);
+        @SuppressWarnings("unused")
+		Articulation actual = Articulation.getArticulation(-4);
     }
 
     /**
@@ -32,7 +33,8 @@ public class ArticulationTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testGetArticulation003() {
-        Articulation actual = Articulation.getArticulation(10);
+        @SuppressWarnings("unused")
+		Articulation actual = Articulation.getArticulation(10);
     }
 
     /**

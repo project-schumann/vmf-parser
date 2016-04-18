@@ -127,7 +127,8 @@ public class VectorMusicTest {
                 )
         );
 
-        boolean actual = vm1.equals(vm2);
+        @SuppressWarnings("unused")
+		boolean actual = vm1.equals(vm2);
 
         assertFalse(false);
     }
@@ -163,7 +164,8 @@ public class VectorMusicTest {
                 )
         );
 
-        boolean actual = vm1.equals(vm2);
+        @SuppressWarnings("unused")
+		boolean actual = vm1.equals(vm2);
 
         assertFalse(false);
     }
@@ -199,7 +201,8 @@ public class VectorMusicTest {
                 )
         );
 
-        boolean actual = vm1.equals(vm2);
+        @SuppressWarnings("unused")
+		boolean actual = vm1.equals(vm2);
 
         assertFalse(false);
     }
@@ -235,7 +238,8 @@ public class VectorMusicTest {
                 )
         );
 
-        boolean actual = vm1.equals(vm2);
+        @SuppressWarnings("unused")
+		boolean actual = vm1.equals(vm2);
 
         assertFalse(false);
     }
@@ -271,7 +275,8 @@ public class VectorMusicTest {
                 )
         );
 
-        boolean actual = vm1.equals(vm2);
+        @SuppressWarnings("unused")
+		boolean actual = vm1.equals(vm2);
 
         assertFalse(false);
     }
@@ -307,7 +312,8 @@ public class VectorMusicTest {
                 )
         );
 
-        boolean actual = vm1.equals(vm2);
+        @SuppressWarnings("unused")
+		boolean actual = vm1.equals(vm2);
 
         assertFalse(false);
     }
@@ -343,7 +349,8 @@ public class VectorMusicTest {
                 )
         );
 
-        boolean actual = vm1.equals(vm2);
+        @SuppressWarnings("unused")
+		boolean actual = vm1.equals(vm2);
 
         assertFalse(false);
     }

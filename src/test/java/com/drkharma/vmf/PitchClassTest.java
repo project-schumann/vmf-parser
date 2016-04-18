@@ -24,7 +24,8 @@ public class PitchClassTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testGetPitchClass002() {
-        PitchClass actual = PitchClass.getPitchClass(-10);
+        @SuppressWarnings("unused")
+		PitchClass actual = PitchClass.getPitchClass(-10);
     }
 
     /**
@@ -32,7 +33,8 @@ public class PitchClassTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testGetPitchClass003() {
-        PitchClass actual = PitchClass.getPitchClass(13);
+        @SuppressWarnings("unused")
+		PitchClass actual = PitchClass.getPitchClass(13);
     }
 
     /**
