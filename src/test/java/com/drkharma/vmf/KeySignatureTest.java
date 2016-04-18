@@ -55,6 +55,7 @@ public class KeySignatureTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testGetKeySignature002() {
-        KeySignature ks = KeySignature.getKeySignature(100);
+        @SuppressWarnings("unused")
+		KeySignature ks = KeySignature.getKeySignature(100);
     }
 }

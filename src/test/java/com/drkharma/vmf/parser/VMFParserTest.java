@@ -64,7 +64,8 @@ public class VMFParserTest {
     @Test(expected = IOException.class)
     public void testParse002() throws IOException {
         final String SIMPLE_VMF = "fixtures/missingHeader.vmf";
-        VectorMusic actual = null;
+        @SuppressWarnings("unused")
+		VectorMusic actual = null;
 
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         URI vmfURI = null;
@@ -89,7 +90,8 @@ public class VMFParserTest {
     @Test(expected = IOException.class)
     public void testParse003() throws IOException {
         final String SIMPLE_VMF = "fixtures/missingHeaderValue.vmf";
-        VectorMusic actual = null;
+        @SuppressWarnings("unused")
+		VectorMusic actual = null;
 
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         URI vmfURI = null;
@@ -114,7 +116,8 @@ public class VMFParserTest {
     @Test(expected = TimeSignatureMissingException.class)
     public void testParse004() throws TimeSignatureMissingException {
         final String SIMPLE_VMF = "fixtures/noTimeSignatures.vmf";
-        VectorMusic actual = null;
+        @SuppressWarnings("unused")
+		VectorMusic actual = null;
 
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         URI vmfURI = null;
@@ -179,7 +182,8 @@ public class VMFParserTest {
     @Test(expected = IOException.class)
     public void testParse006() throws IOException {
         final String SIMPLE_VMF = "fixtures/notJson.vmf";
-        VectorMusic actual = null;
+        @SuppressWarnings("unused")
+		VectorMusic actual = null;
 
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         URI vmfURI = null;

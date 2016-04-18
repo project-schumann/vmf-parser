@@ -24,7 +24,8 @@ public class DynamicTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testGetDynamicCode002() {
-        Dynamic actual = Dynamic.getDynamic(-10);
+        @SuppressWarnings("unused")
+		Dynamic actual = Dynamic.getDynamic(-10);
     }
 
     /**
@@ -32,7 +33,8 @@ public class DynamicTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testGetDynamicCode003() {
-        Dynamic actual = Dynamic.getDynamic(10);
+        @SuppressWarnings("unused")
+		Dynamic actual = Dynamic.getDynamic(10);
     }
 
     /**
@@ -40,7 +42,8 @@ public class DynamicTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testGetDynamic004() {
-        Dynamic actual = Dynamic.getDynamic(0);
+        @SuppressWarnings("unused")
+		Dynamic actual = Dynamic.getDynamic(0);
     }
 
     /**
